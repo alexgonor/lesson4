@@ -1,24 +1,9 @@
-# README
+Lesson 4
+-
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Remove from the list on toggle
+- Double click action replaces title with input
+- Enter on replaced input updates task title and switch back to text
+- Add `×` to delete the item
+- Clear completed tasks from the list
+- Add global checkbox that works like on github (See lesson3 PRs)
