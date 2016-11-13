@@ -15,6 +15,19 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).on('change', 'input:checkbox', function(){
-  // alert(this.checked);
+$(document).on('dblclick', '#tasks li span', function() {
+    var currentEle = $(this);
+    var value = $(this).html();
+    updateVal(currentEle, value);
 })
+
+function updateVal(currentEle, value) {
+    $(currentEle).html('<input class="edit" name="task[title]" value="' + value + '" />');
+    $(".edit").focus();
+    $(".edit").keyup(function (event) {
+        if (event.keyCode == 13) {
+            $(currentEle).html($(".edit").val().trim());
+            $(this).closest('form').submit();
+        }
+    });
+}

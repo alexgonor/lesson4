@@ -1,4 +1,17 @@
-<li>
-  <input type='checkbox' name='done' value='1' data-url="<%= task_path(task)%>" data-method="PATCH" data-remote <%= 'checked' if task.done %>>
-  <span><%= task.title %></span>
+<li id="item-hide-<%= task.id %>">
+  <input id="item-<%= task.id %>" type='checkbox' name='done' value='1' data-url="<%= task_path(task)%>" data-method="PATCH" data-remote <%= 'checked' if task.done %>>
+  <%= form_for task, method: :put, url: update_title_task_path(task), remote: true do %>
+      <span> <%= task.title %></span>
+  <% end %>
+
+  <%= link_to "X", task_path(task), remote: true, class: 'delete', method: :delete,
+              data: { confirm: "Are you sure?" } %>
 </li>
+
+<script>
+  $(document).on('turbolinks:load',function() {
+    $('#item-' + <%= task.id %>).click(function() {
+      $('#item-hide-' + <%= task.id %>).toggle(1000);
+    });
+  });
+</script>

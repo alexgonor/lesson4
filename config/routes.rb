@@ -5,5 +5,8 @@ Rails.application.routes.draw do
                  on: :collection,
                  as: :filtered,
                  constraints: { type: /open|done/ }
+    member do
+      put :update_title
+    end
   end
 end
