@@ -20,5 +20,5 @@ input[type=checkbox]:checked + span {
 }
 
 span {
-    display: inline-block;
+    display: inline-block ;
 }
