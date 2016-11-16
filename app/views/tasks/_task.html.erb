@@ -1,17 +1,17 @@
 <li id="item-hide-<%= task.id %>">
-  <span><input id="item-<%= task.id %>" type='checkbox' name='done' value='1' data-url="<%= task_path(task)%>" data-method="PATCH" data-remote <%= 'checked' if task.done %>></span>
-  <span><%= form_for task, method: :put, url: update_title_task_path(task), remote: true do %></span>
+  <input id="item-<%= task.id %>" type='checkbox' name='done' value='1' data-url="<%= task_path(task)%>" data-method="PATCH" data-remote <%= 'checked' if task.done %>>
+  <%= form_for task, method: :put, url: update_title_task_path(task), remote: true do %>
       <span> <%= task.title %></span>
   <% end %>
 
-  <span><%= link_to image_tag("cross.png", size: "10x10"), task_path(task), remote: true, class: 'delete', method: :delete,
-                    data: { confirm: "Are you sure?" } %></span>
+  <%= link_to image_tag("cross.png", size: "10x10"), task_path(task), remote: true, class: 'delete', method: :delete,
+                    data: { confirm: "Are you sure?" } %>
 </li>
 
 <script>
   $(document).on('turbolinks:load',function() {
     $('#item-' + <%= task.id %>).click(function() {
-      $('#item-hide-' + <%= task.id %>).toggle(1000);
+      $('#item-hide-' + <%= task.id %>).slideUp();
     });
   });
 </script>

@@ -31,3 +31,4 @@ function updateVal(currentEle, value) {
         }
     });
 }
+
