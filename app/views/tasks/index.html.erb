@@ -1,3 +1,4 @@
+<hr>
 <%= link_to 'All', root_path %>
 |
 <%= link_to 'Done', filtered_tasks_path(:done) %>
@@ -7,7 +8,7 @@
 
 <%= render 'form' %>
 
-<input type='checkbox' name='done' id='boss' value='1' data-url="<%= tasks_path %>" data-method="PATCH" data-remote <%= 'checked' if tasks.all?(&:done) %> >
+<input type='checkbox' name='done' id='boss' value='1' data-url="<%= tasks_path %>" data-method="PATCH" data-remote <%= 'checked' if tasks.all?(&:done) %> ><label>Select All</label>
 <ol id='tasks' data-type="<%= params[:type] %>">
   <%= render tasks %>
 </ol>
